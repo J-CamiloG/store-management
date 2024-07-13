@@ -23,8 +23,9 @@ namespace MiApp
                 Console.WriteLine("1 Ingresar factura");
                 Console.WriteLine("2 Ver promedio ventas");
                 Console.WriteLine("3 Imprimir todas las facturas");
-                Console.WriteLine("4 Empleado del mes");
-                Console.WriteLine("5 Cerra");
+                Console.WriteLine("4 Mostrar comprador del mes");
+                Console.WriteLine("5 Empleado del mes");
+                Console.WriteLine("6 Cerra");
                 Console.WriteLine("===========================================");
                 Console.Write("Selecciona una opción: ");
 
@@ -41,9 +42,12 @@ namespace MiApp
                         lista.printList();
                         break;
                     case "4":
-                        lista.mostrarVendedorMes();
+                        lista.MostrarCompradorDelMes();
                         break;
                     case "5":
+                        lista.mostrarVendedorMes();
+                        break;
+                    case "6":
                         Console.WriteLine("Hasta luego, vuelva pronto");
                         continuar = false;
                         break;

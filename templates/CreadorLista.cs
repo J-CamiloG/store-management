@@ -112,5 +112,15 @@ namespace CreadorLista
             .FirstOrDefault();
             Console.WriteLine(empleadoMes.Key);
         }
+    
+        public void MostrarCompradorDelMes()
+        {
+            var mesActual = DateTime.Now.Month;
+            var clienteMes = listaVentas.Where(venta => venta.FechaDeVenta.Month == mesActual)
+            .GroupBy(venta => venta.Comprador)
+            .OrderByDescending(venta => venta.Sum(venta => venta.CantidadDeProductos * venta.ValorProducto))
+            .FirstOrDefault();
+            Console.WriteLine(clienteMes.Key);
+        }
     }
 }
