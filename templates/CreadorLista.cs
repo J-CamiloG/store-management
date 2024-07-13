@@ -103,7 +103,14 @@ namespace CreadorLista
             Console.WriteLine($"Total de ventas encontradas: {numeroVentas}");
             Console.WriteLine($"Promedio de ventas diarias: {promedioVentas} COP");
         }
-
-        
+        public void mostrarVendedorMes()
+        {
+            var mesActual = DateTime.Now.Month;
+            var empleadoMes = listaVentas.Where(venta => venta.FechaDeVenta.Month == mesActual)
+            .GroupBy(venta => venta.Vendedor) 
+            .OrderByDescending(venta => venta.Sum(venta => venta.CantidadDeProductos * venta.ValorProducto)) // sumamos las ventas que hizo
+            .FirstOrDefault();
+            Console.WriteLine(empleadoMes.Key);
+        }
     }
 }
